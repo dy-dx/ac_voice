@@ -92,7 +92,7 @@ mal_uint32 on_send_frames_to_device(mal_device* pDevice, mal_uint32 frameCount, 
     return frameCount;
 }
 
-std::atomic<int> gQuitTextProcessThread = 0;
+std::atomic<int> gQuitTextProcessThread(0);
 std::mutex gTextProcessLock;
 std::vector<std::string> gTextProcessQueue;
 
@@ -179,7 +179,7 @@ int main(int argc, char* argv[])
 
     {
         mal_decoder_config config;
-        char voicePath[_MAX_PATH];
+        char voicePath[260];
         for (char c = 'a'; c != ('z' + 1); ++c)
         {
             snprintf(voicePath, sizeof(voicePath), "%s/%c.wav", argv[1], c);

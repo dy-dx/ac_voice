@@ -20,7 +20,7 @@ solution "ac_voice"
         kind "ConsoleApp"
         language "C++"
         configuration "gmake"
-            buildoptions { "-std=c++11" }
+            buildoptions { "-std=c++14" }
         configuration {}
         files
         {
